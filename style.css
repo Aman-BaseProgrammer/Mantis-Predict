@@ -1,15 +1,8 @@
-* {html, body {
-  width: 100%;
-  max-width: 100%;
-  overflow-x: hidden;
-}
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'Inter', sans-serif;
-  max-width: 100%;
 }
 
 body {
@@ -27,7 +20,6 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
   width: 100%;
   z-index: 9999;
 
@@ -197,17 +189,6 @@ body::before {
   z-index: 0;
 }
 
-/* === Disable cursor & glow on mobile (touch devices) === */
-@media (pointer: coarse) {
-  .cursor {
-    display: none;
-  }
-
-  body::before {
-    display: none;
-  }
-}
-
 /* Reveal animation */
 .reveal {
   opacity: 0;
@@ -339,10 +320,6 @@ button:hover {
   filter: drop-shadow(0 0 8px rgba(139,92,246,0.7));
 }
 
-.wave-ring {
-  overflow: hidden;
-}
-
 /* === Staggered card animation === */
 .stagger .feature-card {
   opacity: 0;
@@ -383,19 +360,22 @@ button:hover {
 }
 
 /* Mobile styles */
-@media (max-width: 480px) {
-  .hero {
-    padding: 20px;
+@media (max-width: 768px) {
+  .nav-links {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: rgba(2, 6, 23, 0.95);
+    backdrop-filter: blur(12px);
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    padding: 40px 0;
+    transform: translateY(-120%);
+    transition: transform 0.4s ease;
+    z-index: 999;
   }
-
-  .hero h1 {
-    font-size: 38px;
-  }
-
-  .hero p {
-    font-size: 16px;
-  }
-}
 
   .nav-links.active {
     transform: translateY(0);
@@ -820,5 +800,4 @@ button:hover {
 #scrollTopBtn:hover {
   transform: translateY(-4px);
   box-shadow: 0 10px 30px rgba(139, 92, 246, 0.35);
-  }
 }
